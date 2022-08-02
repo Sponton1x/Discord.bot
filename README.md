@@ -11,8 +11,7 @@ He used to file ```.json```
 * information command
 * role managment & game
 
-# License
-This software is distributed under the BSD-2-Clause license, along with the BSD. Please read [LICENSE](https://choosealicense.com/licenses/bsd-2-clause/) for information on the software availability and distribution.
+
 
 # Installation
 I will recommend setup venv python. List of commands is below.
@@ -32,3 +31,8 @@ I will recommend setup venv python. List of commands is below.
     cd Voice Assistant
     main.py
     
+# License
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. In short CC BY-NC 4.0 are allowed to copy and redistribute the material in any medium or format, but you don't acceptance of financial benefits.
+
+## Contact
+If you are have problem with this repository, you can contact me od Discord: Sponton#4170

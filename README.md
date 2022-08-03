@@ -1,8 +1,18 @@
 # Discord.bot
-<h3>Oripy is discord bot written in python using discord.py</h3> 
+<h3>Oripy is discord bot written in python using discord.py</h3>
 
-✨Oripy has moderation commands, role&channel managment and information commands.✨
+<div>
+    <img src="https://img.shields.io/badge/build%20with-python3-red?style=for-the-badge&logo=appveyor" />
+    <img src="https://img.shields.io/badge/version-1.0.0--aplha-green?style=for-the-badge&logo=appveyor" />
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en"><img src="https://img.shields.io/badge/license-CC%20BY--NC%204.0-blue?style=for-the-badge&logo=appveyor"/></a>
+    <a href="https://discordpy.readthedocs.io/en/latest/"><img src="https://img.shields.io/badge/using-discord.py v.1.7.3-red?style=for-the-badge&logo=appveyor" /></a>
+</div>
 
+
+# Info
+
+✨Oripy has moderation commands, role&channel managment and information commands.✨ <br>
+Oripy is discord bot written in python using discord.py</h3> <br>
 
 He used to file ```.json```
 

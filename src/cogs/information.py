@@ -89,5 +89,5 @@ class Information(commands.Cog):
         embed.add_field(name = "Użytkownicy:", value = f'`{len(self.client.users)}`')
         await ctx.send(embed = embed)
 
-def setup(client):
-    client.add_cog(Information(client))
+async def setup(client):
+    await client.add_cog(Information(client))

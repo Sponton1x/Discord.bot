@@ -16,5 +16,5 @@ class Suggest(commands.Cog):
             await ctx.add_reaction("😐")
             await ctx.add_reaction("😟")
 
-def setup(client):
-    client.add_cog(Suggest(client))
+async def setup(client):
+    await client.add_cog(Suggest(client))

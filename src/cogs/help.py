@@ -14,5 +14,5 @@ class Help(commands.Cog):
           embed.add_field(name=cmd.name, value="aliases: "+" ".join(cmd.aliases))
         await ctx.send(embed=embed)
 
-def setup(client):
-    client.add_cog(Help(client))
+async def setup(client):
+    await client.add_cog(Help(client))

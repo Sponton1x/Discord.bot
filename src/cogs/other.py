@@ -25,5 +25,5 @@ class Other(commands.Cog):
         channel = await member.create_dm()
         await channel.send(f"**{ctx.message.author} Responded =>** {content}")
 
-def setup(client):
-    client.add_cog(Other(client))
+async def setup(client):
+    await client.add_cog(Other(client))

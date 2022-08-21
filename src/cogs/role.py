@@ -192,5 +192,5 @@ class Moderation(commands.Cog):
         em.set_author(name = ctx.author.name, icon_url = ctx.author.avatar_url)
         await ctx.send(embed = em)
 
-def setup(client):
-    client.add_cog(Moderation(client))
+async def setup(client):
+    await client.add_cog(Moderation(client))

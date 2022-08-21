@@ -15,5 +15,5 @@ class Spotify(commands.Cog):
 
         await ctx.send(f"https://open.spotify.com/track/{spotify_results.track_id}")
 
-def setup(client):
+async def setup(client):
     await client.add_cog(Spotify(client))

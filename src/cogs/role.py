@@ -1,15 +1,14 @@
 import discord
 from discord.ext import commands
-from discord.ext.commands import has_permissions
-from discord.ext.commands import MissingPermissions, BadArgument
+from discord.ext.commands import has_permissions, MissingPermissions, BadArgument
 
 class Moderation(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases=["giverole", "addr"])
+    @commands.command(name="giverole")
     @commands.guild_only()
-    @has_permissions(manage_roles = True)
+    @commands.has_permissions(manage_roles = True)
     async def addrole(self, ctx, member : discord.Member = None, role : discord.Role = None,*,reason = None):
         if member is None:
             embed = discord.Embed(title = "Addrole Failed!", color= ctx.author.color)
@@ -56,10 +55,10 @@ class Moderation(commands.Cog):
             embed.set_footer(text = "-_-, nie mam uprawnień")
             embed.set_author(name = ctx.author.name, icon_url = ctx.author.avatar_url)
             await ctx.send(embed = embed)
-    
-    @commands.command(aliases=["takerole", "remover"])
+
+    @commands.command(name="takerole")
     @commands.guild_only()
-    @has_permissions(manage_roles = True)
+    @commands.has_permissions(manage_roles = True)
     async def removerole(self, ctx, member : discord.Member = None, role : discord.Role = None,*,reason = None):
         if member is None:
             embed = discord.Embed(title = "Zdjęcie roli nieprawidłowe!", color= ctx.author.color)
@@ -122,7 +121,7 @@ class Moderation(commands.Cog):
         await ctx.send(embed = em)
 
 
-    @commands.command(aliases=["delrole"])
+    @commands.command(name="delrole")
     @commands.guild_only()
     @commands.has_permissions(manage_roles = True)
     async def deleterole(self, ctx, *, role: discord.Role):
@@ -134,11 +133,11 @@ class Moderation(commands.Cog):
         await ctx.send(embed = em)
 
         await role.delete(reason = f"{ctx.author.name} pytałem o to!")
- 
+
 
     @commands.command()
     @commands.guild_only()
-    @has_permissions(manage_channels = True)
+    @commands.has_permissions(manage_channels = True)
     async def lock(self, ctx, *, reason = None):
         channel = ctx.channel
         await ctx.channel.set_permissions(ctx.guild.default_role, send_messages = False)
@@ -149,10 +148,9 @@ class Moderation(commands.Cog):
         await ctx.channel.send(embed = em)
 
 
-
     @commands.command()
     @commands.guild_only()
-    @has_permissions(manage_channels = True)
+    @commands.has_permissions(manage_channels = True)
     async def unlock(self, ctx, *, reason = None):
         channel = ctx.channel
         await ctx.channel.set_permissions(ctx.guild.default_role, send_messages = True)
@@ -164,7 +162,7 @@ class Moderation(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @has_permissions(manage_channels = True)
+    @commands.has_permissions(manage_channels = True)
     async def setdelay(self, ctx, amount = 5, *, reason = None):
         if amount > 6000:
             await ctx.channel.send("Liczba niższa niż 6000!")
@@ -177,7 +175,7 @@ class Moderation(commands.Cog):
             em.set_author(name = ctx.author.name, icon_url = ctx.author.avatar_url)
             await ctx.send(embed = em)
             return
-        
+
         if ctx.channel.slowmode_delay != amount:
             await ctx.channel.edit(slowmode_delay=amount)
         else:

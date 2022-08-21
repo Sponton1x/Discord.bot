@@ -11,9 +11,9 @@ class Spotify(commands.Cog):
         spotify_results = next((activity for activity in user.activities if isinstance(activity,discord.Spotify)),None)
 
         if spotify_results is None:
-            await ctx.send(f"{user.name} nie słucha teraz Spotify.")
+            await ctx.send(f"{user.name} don't listening Spotify.")
 
         await ctx.send(f"https://open.spotify.com/track/{spotify_results.track_id}")
 
 def setup(client):
-    client.add_cog(Spotify(client))
+    await client.add_cog(Spotify(client))

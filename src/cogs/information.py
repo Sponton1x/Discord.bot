@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import random
 import datetime
-import json
 
 class Information(commands.Cog):
     def __init__(self, client):
@@ -32,12 +31,12 @@ class Information(commands.Cog):
     async def channelinfo(self, ctx, channel : discord.TextChannel = None):
         if channel == None:
             channel = ctx.channel
-        
+
         em = discord.Embed(title = f"Informacje o {channel.name}", color = ctx.author.color, description = f"Here is an insight into {channel.mention}")
         em.add_field(name = "ID:", value = f"`{channel.id}`")
         em.add_field(name = "Nazwa:", value = f"`{channel.name}`")
         em.add_field(name = "Server należy do:", value = f"{channel.guild.name}", inline = True)
-        
+
         try:
             em.add_field(name = "Kategoria ID:", value = f"`{channel.category_id}`", inline = False)
         except:
@@ -48,11 +47,11 @@ class Information(commands.Cog):
         em.add_field(name = "Kto może zobaczyć kanał:", value = f"`{len(channel.members)}`", inline = False)
         em.add_field(name = "Czy NSFW:", value = f"`{channel.is_nsfw()}`")
         em.add_field(name = "Czy News:", value = f"`{channel.is_news()}`", inline = True)
-        
+
         em.set_footer(text = f"Wywołane przez {ctx.author.name}", icon_url = ctx.author.avatar_url)
         em.set_thumbnail(url = str(ctx.guild.icon_url))
         em.set_author(name = ctx.author.name, icon_url = ctx.author.avatar_url)
-        
+
         await ctx.send(embed = em)
 
     @commands.command(aliases = ["ui"])
@@ -71,7 +70,7 @@ class Information(commands.Cog):
             device = "Desktop"
         elif member.web_status:
             device=  "Web"
-        embed.add_field(name = "Discord Urządzenie:", value = device)
+        embed.add_field(name = "discord Urządzenie:", value = device)
         embed.add_field(name = "Color", value = member.color)
         embed.add_field(name = "wzmianka:", value = member.mention)
         embed.add_field(name = "Top Role:", value = member.top_role.mention)
@@ -79,7 +78,7 @@ class Information(commands.Cog):
         embed.set_footer(icon_url=member.avatar_url, text=f'Wywołane przez: {ctx.author.name}')
         await ctx.send(embed=embed)
 
-            
+
     @commands.command(aliases = ["bi"])
     async def botinfo(self, ctx):
         embed = discord.Embed(title = "Botinfo", color = ctx.author.color,)

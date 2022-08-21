@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import json
+from discord.ext.commands import has_permissions
 
 class Administrator(commands.Cog):
 
@@ -9,7 +9,7 @@ class Administrator(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, member: discord.Member, *, reason=None):
+    async def kick(self, ctx, member: discord.Member, *, reason=None, description="Kick a user from guild"):
         await member.kick(reason=reason)
         embed = discord.Embed(description=(f'{member} został wyrzucony za {reason} przez {ctx.author}'),
                               colour=discord.Colour.orange())
@@ -42,7 +42,7 @@ class Administrator(commands.Cog):
                 await ctx.send(embed=embed)
                 return
 
-    @commands.command(aliases=['clear'])
+    @commands.command(name='clear')
     @commands.has_permissions(manage_messages=True)
     async def purge(self, ctx, amount: int):
         await ctx.channel.purge(limit=amount)

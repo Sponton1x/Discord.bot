@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import json
 
 class Suggest(commands.Cog):
 
@@ -10,7 +9,7 @@ class Suggest(commands.Cog):
         @commands.command()
         async def suggest(self,ctx,content ):
             embed = discord.Embed(title="Propozycja", description=f"{content}")
-            embed.add_fiel(name="ID",value=ctx.author.id)
+            embed.add_field(name="ID",value=ctx.author.id)
             embed.set_footer(text=f"od {ctx.author}", icon_url=ctx.author.avatar_url)
             await ctx.send(embed=embed)
             await ctx.add_reaction("😀")

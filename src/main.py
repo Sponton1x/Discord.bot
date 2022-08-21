@@ -4,8 +4,8 @@ from aiohttp import ClientConnectorError
 from discord.ext import commands
 from discord import Intents
 
-TOKEN = "ODg1MTQzODg2MjQ5NDYzODUw.G7Igte.4PQSX47EmyIsbB22QgV5s3BKo5yFfou-9fSK0o"
-CLIENT_ID = 885143886249463850
+TOKEN = "token"
+CLIENT_ID = id_bota
 
 
 intents = Intents.all()
